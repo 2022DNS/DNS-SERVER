@@ -57,7 +57,7 @@ jobs:
           container-name: junan-container
           image: ${{ needs.build.outputs.image }}
       - name: Deploy to Amazon ECS
-        uses: aws-actions/amazon-e`cs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: dmdd
