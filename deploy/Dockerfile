@@ -1,5 +1,6 @@
 FROM python:slim
 
+RUN sudo apt-get install libssl-dev
 RUN pip install django
 RUN pip install pymysql
 RUN pip install mysqlclient
