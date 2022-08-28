@@ -1,10 +1,12 @@
 FROM python:slim
 
-RUN apt-get install libssl-dev
+RUN apt-get update
+RUN apt-get install -y gcc
+RUN apt-get install -y default-libmysqlclient-dev
+ENV PYTHONBUFFERED 1
 RUN pip install django
 RUN pip install pymysql
 RUN pip install mysqlclient
-
 COPY . code/
 WORKDIR code/
 
