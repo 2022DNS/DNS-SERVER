@@ -1,6 +1,8 @@
 FROM python:slim
 
 RUN pip install django
+RUN pip install pymysql
+RUN pip install mysqlclient
 
 COPY . code/
 WORKDIR code/
