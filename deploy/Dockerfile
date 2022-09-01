@@ -7,6 +7,7 @@ ENV PYTHONBUFFERED 1
 RUN pip install django
 RUN pip install pymysql
 RUN pip install mysqlclient
+
 COPY . code/
 WORKDIR code/
 
