@@ -35,7 +35,7 @@ eye_closed_ratio_limit = 5
 # Return value: int value(dns_result)
 def check_drowsy_driving_based_on_eye_condition(json_encoded_image_list):
     # Change
-    encoded_image_list = json.loads(json_encoded_image_list)['byte_images']
+    encoded_image_list = json.loads(json_encoded_image_list)['images']
     eye_close_frame_count = 0
     for encoded_image in encoded_image_list:
         # Get each image from encoded image list and change to be usable in OpenCV.
