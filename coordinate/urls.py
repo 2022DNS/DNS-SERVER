@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
     path('coordinate/', views.RoadListAPIView.as_view()),
-    path('coordinate/<int:pk>/', views.RoadDetailAPIView.as_view()),
+    path('coordinate/lo/<str:pk>/la/<str:post_pk>', views.RoadDetailAPIView.as_view()),
     path('coordinate/create', views.RoadCreateAPIView.as_view())
 ]

@@ -13,3 +13,12 @@ class RoadSerializer(serializers.ModelSerializer):
             'count',
             'date'
         )
+
+class RoadDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Road
+        fields = (
+            'longitude',
+            'latitude',
+            'count'
+        )

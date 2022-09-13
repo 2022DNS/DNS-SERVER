@@ -1,16 +1,19 @@
 from django.db import models
 from django.conf import settings
 
+
 class Road(models.Model):
     id = models.AutoField(
         primary_key=True
     )
-    longitude = models.FloatField(
+    longitude = models.CharField(
+        max_length=20,
         null=False,
         blank=False,
         verbose_name="경도"
     )
-    latitude = models.FloatField(
+    latitude = models.CharField(
+        max_length=20,
         null=False,
         blank=False,
         verbose_name="위도"
@@ -19,7 +22,7 @@ class Road(models.Model):
         default=1,
         verbose_name="졸음 횟수"
 
-    ) # 졸음횟수
+    )# 졸음횟수
     date = models.DateTimeField(
         null=False,
         blank=False,
