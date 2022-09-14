@@ -2,7 +2,6 @@ from .models import Road
 from .serializers import RoadSerializer, RoadDetailSerializer
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.exceptions import NotFound
-from serializers import serializers
 
 class RoadDetailAPIView(RetrieveAPIView):
     serializer_class = RoadDetailSerializer
@@ -12,7 +11,6 @@ class RoadDetailAPIView(RetrieveAPIView):
         la = self.kwargs['post_pk']
         try:
             resp = Road.objects.filter(longitude=lo, latitude=la).get()
-            print(serializers)
         except Road.DoseNotExist:
             raise NotFound()
         return resp
