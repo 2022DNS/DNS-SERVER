@@ -9,6 +9,7 @@ RUN apt-get install -y build-essential
 
 ENV PYTHONBUFFERED 1
 RUN pip install django
+RUN pip install djangorestframework
 RUN pip install pymysql
 RUN pip install mysqlclient
 
