@@ -33,9 +33,9 @@ eye_closed_ratio_limit = 5
 # This function detect drowsy driving only by eye size and eye closed.
 # Required parameter: json data: { byte_images: [ "img_data", ..., "img_data" ] }
 # Return value: int value(dns_result)
-def check_drowsy_driving_based_on_eye_condition(json_encoded_image_list):
+def check_drowsy_driving_based_on_eye_condition(encoded_image_list):
     # Change
-    encoded_image_list = json.loads(json_encoded_image_list)['images']
+
     eye_close_frame_count = 0
     for encoded_image in encoded_image_list:
         # Get each image from encoded image list and change to be usable in OpenCV.

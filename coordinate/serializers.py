@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Road
 
 
-
 class RoadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Road
@@ -14,9 +13,20 @@ class RoadSerializer(serializers.ModelSerializer):
             'date'
         )
 
+
 class RoadDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Road
         fields = (
             'count',
+        )
+
+
+class RoadCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Road
+        fields = (
+            'longitude',
+            'latitude',
         )

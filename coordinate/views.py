@@ -1,12 +1,12 @@
 from .models import Road
-from .serializers import RoadSerializer, RoadDetailSerializer
+from .serializers import RoadSerializer, RoadDetailSerializer, RoadCreateSerializer
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.exceptions import NotFound
-
+from .service import run
 class RoadDetailAPIView(RetrieveAPIView):
     serializer_class = RoadDetailSerializer
 
-    def get_object(self):
+    def get_queryset(self):
         lo = self.kwargs['pk']
         la = self.kwargs['post_pk']
         try:
@@ -14,13 +14,6 @@ class RoadDetailAPIView(RetrieveAPIView):
         except Road.DoesNotExist:
             raise NotFound()
         return resp
-
-    # def get_queryset(self):
-        # lo = self.kwargs['pk']
-        # la = self.kwargs['post_pk']
-        # print(lo, la)
-        # print(serializers.serialize("json",Road.objects.filter(longitude=lo, latitude=la)))
-        # return Road.objects.filter(longitude=lo, latitude=la).get()
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(self, request, *args, **kwargs)
@@ -32,6 +25,7 @@ class RoadDetailAPIView(RetrieveAPIView):
         return self.destroy(self, request, *args, **kwargs)
 
 class RoadListAPIView(ListAPIView):
+
     serializer_class = RoadSerializer
 
     def get_queryset(self):
@@ -40,5 +34,7 @@ class RoadListAPIView(ListAPIView):
 
 class RoadCreateAPIView(CreateAPIView):
     serializer_class = RoadSerializer
+
     def post(self, request, *args, **kwargs):
-        return super(RoadCreateAPIView, self).post(request, *args, **kwargs)
+        resp = run(request.data)
+        return resp
