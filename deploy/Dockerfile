@@ -3,7 +3,7 @@ FROM python:slim
 RUN apt-get update
 RUN apt-get install -y gcc
 RUN apt-get install -y default-libmysqlclient-dev
-
+RUN apt-get -y install libgl1-mesa-glx
 # build-essential includes default libraries.: ILoveGameCoding
 RUN apt-get install -y build-essential
 
