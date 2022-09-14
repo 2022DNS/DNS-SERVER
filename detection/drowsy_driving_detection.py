@@ -5,7 +5,7 @@ import dlib
 import json
 
 from detection import face_object
-
+import os
 
 # Class for constant results.
 class DnsResult():
@@ -23,7 +23,8 @@ dns_result = DnsResult()
 detector = dlib.get_frontal_face_detector()
 
 # Face landmark detector.
-predictor = dlib.shape_predictor("model/shape_predictor_68_face_landmarks.dat")
+
+predictor = dlib.shape_predictor('detection/model/shape_predictor_68_face_landmarks.dat')
 
 # Eye width/height ratio limit to be perceived as closed.
 eye_closed_ratio_limit = 5
