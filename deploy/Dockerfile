@@ -7,19 +7,13 @@ RUN apt-get install -y default-libmysqlclient-dev
 # build-essential includes default libraries.: ILoveGameCoding
 RUN apt-get install -y build-essential
 
-ENV PYTHONBUFFERED 1
-RUN pip install django
-RUN pip install djangorestframework
-RUN pip install pymysql
-RUN pip install mysqlclient
-
-# This package used for Facial Landmark Detection.: ILoveGameCoding
-RUN pip install cmake
-RUN pip install opencv-python
-RUN pip install dlib
-
 COPY . code/
 WORKDIR code/
+
+ENV PYTHONBUFFERED 1
+RUN pip install cmake
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 RUN python manage.py migrate
 

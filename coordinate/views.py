@@ -11,7 +11,7 @@ class RoadDetailAPIView(RetrieveAPIView):
         la = self.kwargs['post_pk']
         try:
             resp = Road.objects.filter(longitude=lo, latitude=la).get()
-        except Road.DoseNotExist:
+        except Road.DoesNotExist:
             raise NotFound()
         return resp
 
