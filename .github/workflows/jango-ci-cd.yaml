@@ -29,7 +29,7 @@ jobs:
           ECR_REPOSITORY: jango
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -f deploy/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -f deploy/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG BUILDKIT_INLINE_CACHE=1 .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
   deploy:
