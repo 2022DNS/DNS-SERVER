@@ -1,4 +1,4 @@
-<h1 align="center"><strong>D.N.S</strong><br>우리의 안전을 지키는 졸음 탐지 오픈소스.</h1>
+<h1 align="center"><strong>D.N.S</strong><br>우리의 안전을 지키는 졸음 탐지 오픈소스</h1>
 <p align="center">
  졸음을 탐지할 수 있는 오픈소스를 사용하여 졸음 운전을 방지하세요.
 </p>
