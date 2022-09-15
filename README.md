@@ -33,7 +33,7 @@ $ npm install
 </thead>
 <tbody>
     <tr>
-        <td width="100" align="center"><img src="/images/youngjin.PNG" width="60" height="60"></td>
+        <td width="100" align="center"><img src="/images/youngjin.png" width="60" height="60"></td>
         <td width="100" align="center">손영진</td>
         <td width="150">D.N.S팀장<br>D.N.S-Mobile 개발<br>졸음 인식 개발</td>
         <td width="100" align="center">
@@ -59,7 +59,7 @@ $ npm install
         </td>
     </tr>
     <tr>
-        <td width="100" align="center"><img src="/images/sungjoon.PNG" width="60" height="60"></td>
+        <td width="100" align="center"><img src="/images/sungjoon.png" width="60" height="60"></td>
         <td width="100" align="center">배성준</td>
         <td width="150">D.N.S Server 개발<br>문서 작업 등</td>
         <td width="100" align="center">
