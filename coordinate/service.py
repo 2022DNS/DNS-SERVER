@@ -1,20 +1,20 @@
 from .models import Road
 from detection.drowsy_driving_detection import check_drowsy_driving_based_on_eye_condition
+import decimal
 
-def changer(flo):
 
-    ##배성준 십년아 여기에 반올림하는 코드짜놔
-    flo = str(flo).split(".")
-    return flo[0] + '-' + flo[1]
+def converter(coord_val):
 
-def run(request):
+    coord_val = round(decimal.Decimal(coord_val, 3))
+    coord_val = str(coord_val).split(".")
+    return coord_val[0] + '-' + coord_val[1]
 
-    res_code = check_drowsy_driving_based_on_eye_condition(request.get('images'))
+
+def run(images, la, lo):
+
+    res_code = check_drowsy_driving_based_on_eye_condition(images)
     if res_code != 1:
         return res_code
-
-    la = changer(request.get('latitude'))
-    lo = changer(request.get('longitude'))
 
     data = Road.objects.filter(longitude=lo, latitude=la)#.get()
     if data.exists():

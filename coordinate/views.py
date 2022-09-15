@@ -38,10 +38,14 @@ class RoadCreateAPIView(CreateAPIView):
     serializer_class = RoadSerializer
 
     def post(self, request, *args, **kwargs):
-        #images = request.get('images')
-        #la = request.get('la')
-        #lo = request.get('lo')
-        resp = run(request.data)
+        images = request.get('images')
+        la = request.get('la')
+        lo = request.get('lo')
+
+        la = converter(la)
+        lo = converter(lo)
+
+        resp = run(images, la, lo)
 
         return resp
 
