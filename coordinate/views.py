@@ -18,9 +18,7 @@ class RoadDetailAPIView(RetrieveAPIView):
             resp = Road.objects.filter(longitude=lo, latitude=la).get()
 
         except Road.DoesNotExist:
-            return Response({
-                "count": 0
-            })
+            return Road(count=0)
         return resp
 
     def get(self, request, *args, **kwargs):
