@@ -17,8 +17,8 @@ def run(images, la, lo):
     if resp != 1:
         return resp
 
-    data = Road.objects.filter(longitude=lo, latitude=la)#.get()
-    if data.exists():
+    data = Road.objects.filter(longitude=lo, latitude=la).get()
+    if data:
         data.count = data.count+1
         data.save()
     else:
