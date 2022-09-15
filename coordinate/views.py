@@ -57,5 +57,6 @@ class RoadCreateAPIView(CreateAPIView):
             "result": resp
         })
 
+
 def index(request):
     return HttpResponse("API")
