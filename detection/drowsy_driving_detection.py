@@ -1,6 +1,7 @@
 import base64
 import io
 import cv2
+import numpy as np
 import dlib
 import json
 
@@ -40,20 +41,20 @@ def check_drowsy_driving_based_on_eye_condition(encoded_image_list):
     eye_close_frame_count = 0
     for encoded_image in encoded_image_list:
         # Get each image from encoded image list and change to be usable in OpenCV.
-        decoded_image = cv2.imread(io.BytesIO(base64.b64decode(encoded_image)))
-
-        faces = detector(decoded_image)
+        decoded_image = base64.b64decode(encoded_image)
+        gray_image = cv2.imdecode(np.frombuffer(decoded_image, dtype=np.uint8), flags=1)
+        faces = detector(gray_image)
 
         # If detect face failed.
-        if faces == 0:
+        if len(faces) == 0:
             return dns_result.failed_to_detect_face
 
         # Use first face in list.
         face = faces[0]
-        landmarks = predictor(decoded_image, face)
+        landmarks = predictor(gray_image, face)
         # Draw circle of landmarks.
         # for landmark_index in range(0, 68):
-        #     cv2.circle(decoded_image, (landmarks.part(landmark_index).x, landmarks.part(landmark_index).x), 1,
+        #     cv2.circle(gray_image, (landmarks.part(landmark_index).x, landmarks.part(landmark_index).x), 1,
         #                (255, 255, 255), -1)
 
         if landmarks.num_parts == 0:
