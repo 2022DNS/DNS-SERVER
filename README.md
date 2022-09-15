@@ -24,11 +24,11 @@
  - opencv-python
 
 ## ⛏ 설치 안내 (Installation Process)
-requirements.txt와 Dockerfile을 이용하여 모듈을 설치했다고 가정한다.
 
 ```bash
 $ git clone https://github.com/2022DNS/DNS-SERVER
 $ cd DNS-SERVER
+$ pip install -r requirements.txt
 $ python manage.py runserver
 ```
 
