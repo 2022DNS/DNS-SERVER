@@ -2,16 +2,18 @@ from .models import Road
 from .serializers import RoadSerializer, RoadDetailSerializer, RoadCreateSerializer
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.exceptions import NotFound
-from .service import run, converter
+from .service import run, flo2str, converter
 from django.http import HttpResponse
 from rest_framework.response import Response
 
 class RoadDetailAPIView(RetrieveAPIView):
     serializer_class = RoadDetailSerializer
 
-    def get_queryset(self):
-        lo = self.kwargs['pk']
-        la = self.kwargs['post_pk']
+    def get_object(self):
+        lo = converter(self.kwargs['pk'])
+        la = converter(self.kwargs['post_pk'])
+        print(lo)
+        print(la)
         try:
             resp = Road.objects.filter(longitude=lo, latitude=la).get()
         except Road.DoesNotExist:
@@ -44,8 +46,8 @@ class RoadCreateAPIView(CreateAPIView):
         la = request.data.get('latitude')
         lo = request.data.get('longitude')
 
-        la = converter(la)
-        lo = converter(lo)
+        la = flo2str(la)
+        lo = flo2str(lo)
 
         resp = run(images, la, lo)
 
