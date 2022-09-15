@@ -5,7 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/github/repo-size/2022DNS/DNS-SERVER?style=for-the-badge"/>
   <a href = "https://github.com/2022DNS/DNS-SERVER"><img src="https://img.shields.io/badge/REPO-DNS_SERVER-informatoinal?style=for-the-badge"/></a>
-  <a href = "https://github.com/2022DNS/DNS-MOBILE"><img src="https://img.shields.io/badge/REPO-DNS_MOBILE-informatoinal?style=for-the-badge"/></a>
+  <a href = "https://github.com/2022DNS/DNS-ANDROID"><img src="https://img.shields.io/badge/REPO-DNS_ANDROID-informatoinal?style=for-the-badge"/></a>
   <br>
   
 </p>
