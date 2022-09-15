@@ -3,6 +3,8 @@ from .serializers import RoadSerializer, RoadDetailSerializer, RoadCreateSeriali
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.exceptions import NotFound
 from .service import run
+from django.http import HttpResponse
+
 class RoadDetailAPIView(RetrieveAPIView):
     serializer_class = RoadDetailSerializer
 
@@ -36,5 +38,12 @@ class RoadCreateAPIView(CreateAPIView):
     serializer_class = RoadSerializer
 
     def post(self, request, *args, **kwargs):
+        #images = request.get('images')
+        #la = request.get('la')
+        #lo = request.get('lo')
         resp = run(request.data)
-        return
+
+        return resp
+
+def index(request):
+    return HttpResponse("asdf")
