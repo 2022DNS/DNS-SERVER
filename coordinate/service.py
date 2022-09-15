@@ -12,11 +12,9 @@ def converter(coord_val):
 
 def run(images, la, lo):
 
-    resp = {
-        'res_code': check_drowsy_driving_based_on_eye_condition(images)
-    }
+    resp = check_drowsy_driving_based_on_eye_condition(images)
 
-    if resp['res_code'] != 1:
+    if resp != 1:
         return resp
 
     data = Road.objects.filter(longitude=lo, latitude=la)#.get()
